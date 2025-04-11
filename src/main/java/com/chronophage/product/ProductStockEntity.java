@@ -1,8 +1,6 @@
-package com.chronophage.stock;
+package com.chronophage.product;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class ProductStockEntity {
@@ -11,14 +9,17 @@ public class ProductStockEntity {
     private Long id;
     private String name;
     private Long quantity;
-
-    public ProductStockEntity() {}
+    private double price;
     
-    public ProductStockEntity(Long id, String name, Long quantity) {
+    public ProductStockEntity(String name, Long quantity, double price) {
         super();
-        this.id = id;
         this.name = name;
         this.quantity = quantity;
+        this.price = price;
+    }
+
+    public ProductStockEntity() {
+
     }
 
     public void setId(Long id) {
@@ -43,5 +44,13 @@ public class ProductStockEntity {
 
     public Long getQuantity() {
         return quantity;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

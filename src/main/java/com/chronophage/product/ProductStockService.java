@@ -1,4 +1,4 @@
-package com.chronophage.stock;
+package com.chronophage.product;
 
 import java.util.List;
 

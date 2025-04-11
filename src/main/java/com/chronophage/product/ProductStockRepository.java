@@ -1,4 +1,4 @@
-package com.chronophage.stock;
+package com.chronophage.product;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
