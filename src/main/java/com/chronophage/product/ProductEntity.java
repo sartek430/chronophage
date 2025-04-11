@@ -21,7 +21,7 @@ public class ProductEntity {
 
     public ProductEntity() {}
     
-    public ProductEntity(String name, Long quantity, double price) {
+    public ProductEntity(String name, Long quantity, Double price) {
         super();
         this.name = name;
         this.quantity = quantity;
@@ -52,11 +52,11 @@ public class ProductEntity {
         return quantity;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 }
