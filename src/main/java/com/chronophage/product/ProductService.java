@@ -20,10 +20,12 @@ public class ProductService {
         List<ProductEntity> productEntities = new ArrayList<ProductEntity>();
 
         for (PostProductDTO postProductDTO : products) {
-            ProductEntity productEntity = new ProductEntity();
-            productEntity.setName(postProductDTO.getProductName());
-            productEntity.setPrice(null);
-            productEntity.setQuantity(postProductDTO.getQuantity());
+            ProductEntity productEntity = new ProductEntity(
+                postProductDTO.getProductName(), 
+                postProductDTO.getQuantity(), 
+                null
+            );
+            
             productEntities.add(productEntity);
         }
 
