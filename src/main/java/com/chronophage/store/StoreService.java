@@ -5,8 +5,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
-import jakarta.annotation.PostConstruct;
-
 @Service
 public class StoreService {
     @Autowired RestClient restClient;
@@ -14,11 +12,11 @@ public class StoreService {
     @Value("${spring.application.name}") String name;
     @Value("${spring.application.baseurl}") String baseUrl;
 
-    @PostConstruct
-    public void init() {
-        StoreDTO store = new StoreDTO(name, baseUrl);
-        registerStore(store);
-    }
+    // @PostConstruct
+    // public void init() {
+    //     StoreDTO store = new StoreDTO(name, baseUrl);
+    //     registerStore(store);
+    // }
 
     public StoreDTO registerStore(StoreDTO store) {
         return restClient.post()
