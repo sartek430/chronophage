@@ -6,6 +6,7 @@ import static org.mockito.Mockito.*;
 import java.util.Arrays;
 import java.util.List;
 
+import com.chronophage.product.ProductDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -37,10 +38,10 @@ public class ProductServiceTest {
     @Test
     public void testGetAll() {
         when(repository.findAll()).thenReturn(products);
-        List<ProductEntity> result = service.getAll();
+        List<ProductDTO> result = service.getAll();
 
         assertEquals(2, result.size());
-        assertEquals("potatoes", result.get(0).getName());
+        assertEquals("potatoes", result.get(0).getProductName());
         
         verify(repository, times(1)).findAll();
     }

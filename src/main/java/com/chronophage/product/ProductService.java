@@ -3,6 +3,7 @@ package com.chronophage.product;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.chronophage.price.PriceDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +11,21 @@ import org.springframework.stereotype.Service;
 public class ProductService {
     
     @Autowired
-    ProductRepository repository;
+    private ProductRepository repository;
 
-    public List<ProductEntity> getAll() {
-        return repository.findAll();
+    public List<ProductDTO> getAll() {
+        List<ProductEntity> productEntities = repository.findAll();
+        List<ProductDTO> products = new ArrayList<>();
+
+        for (ProductEntity productEntity : productEntities) {
+            ProductDTO productDTO = new ProductDTO(
+                    productEntity.getId(),
+                    productEntity.getName(),
+                    productEntity.getQuantity()
+            );
+            products.add(productDTO);
+        }
+        return products;
     }
 
     public List<ProductDTO> saveAll(List<ProductDTO> products) {
@@ -25,10 +37,8 @@ public class ProductService {
                 postProductDTO.getQuantity(), 
                 null
             );
-
             productEntities.add(productEntity);
         }
-
         repository.saveAll(productEntities);
         return products;
     }

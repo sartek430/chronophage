@@ -11,7 +11,7 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/stock")
-    public List<ProductEntity> getProducts() {
+    public List<ProductDTO> getProducts() {
         return this.productService.getAll();
     }
 
