@@ -1,5 +1,6 @@
 package com.chronophage.product;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,18 @@ public class ProductService {
         return repository.findAll();
     }
 
-    public void saveAll(List<ProductEntity> entities) {
-        repository.saveAll(entities);
+    public List<PostProductDTO> saveAll(List<PostProductDTO> products) {
+        List<ProductEntity> productEntities = new ArrayList<ProductEntity>();
+
+        for (PostProductDTO postProductDTO : products) {
+            ProductEntity productEntity = new ProductEntity();
+            productEntity.setName(postProductDTO.getProductName());
+            productEntity.setPrice(null);
+            productEntity.setQuantity(postProductDTO.getQuantity());
+            productEntities.add(productEntity);
+        }
+
+        repository.saveAll(productEntities);
+        return products;
     }
 }
