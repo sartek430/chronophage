@@ -16,7 +16,7 @@ public class ProductController {
     }
 
     @PostMapping("/stock")
-    public List<PostProductDTO> addStock(@RequestBody List<PostProductDTO> products) {
+    public List<ProductDTO> addStock(@RequestBody List<ProductDTO> products) {
         return this.productService.saveAll(products);
     }
 }
