@@ -6,15 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductStockService {
+public class ProductService {
     
-    @Autowired ProductStockRepository repository;
+    @Autowired
+    ProductRepository repository;
 
-    public List<ProductStockEntity> getAll() {
+    public List<ProductEntity> getAll() {
         return repository.findAll();
     }
 
-    public void saveAll(List<ProductStockEntity> entities) {
+    public void saveAll(List<ProductEntity> entities) {
         repository.saveAll(entities);
     }
 }
