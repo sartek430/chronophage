@@ -1,31 +1,18 @@
 package com.chronophage.store;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestClient;
 
 @Service
 public class StoreService {
-    private final RestTemplate restTemplate;
-
-    @Value("${remote.store.url}")
-    private String remoteUrl;
-
-    public StoreService(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
-    }
+    @Autowired RestClient restClient;
 
     public StoreDTO registerStore(StoreDTO store) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("Content-Type", "application/json");
-
-        HttpEntity<StoreDTO> request = new HttpEntity<>(store, headers);
-        ResponseEntity<StoreDTO> response = restTemplate.exchange(remoteUrl, HttpMethod.POST, request, StoreDTO.class);
-
-        return response.getBody();
+        return restClient.post()
+            .body(store)
+            .retrieve()
+            .toEntity(StoreDTO.class)
+            .getBody();
     }
 }
