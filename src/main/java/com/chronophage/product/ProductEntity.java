@@ -3,7 +3,7 @@ package com.chronophage.product;
 import jakarta.persistence.*;
 
 @Entity
-public class ProductStockEntity {
+public class ProductEntity {
 
     @Id @GeneratedValue
     private Long id;
@@ -11,14 +11,14 @@ public class ProductStockEntity {
     private Long quantity;
     private double price;
     
-    public ProductStockEntity(String name, Long quantity, double price) {
+    public ProductEntity(String name, Long quantity, double price) {
         super();
         this.name = name;
         this.quantity = quantity;
         this.price = price;
     }
 
-    public ProductStockEntity() {
+    public ProductEntity() {
 
     }
 
