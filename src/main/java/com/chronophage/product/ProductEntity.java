@@ -1,25 +1,31 @@
 package com.chronophage.product;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class ProductEntity {
 
     @Id @GeneratedValue
     private Long id;
+
+    @NotBlank(message = "The product name cannot be empty")
     private String name;
+
+    @Min(value = 1, message = "The quantity must be at least 1")
     private Long quantity;
-    private double price;
+
+    @Min(value = 0, message = "The price must be positive")
+    private Double price;
+
+    public ProductEntity() {}
     
     public ProductEntity(String name, Long quantity, double price) {
         super();
         this.name = name;
         this.quantity = quantity;
         this.price = price;
-    }
-
-    public ProductEntity() {
-
     }
 
     public void setId(Long id) {
