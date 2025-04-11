@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 
 public class ProductDTO {
     private Long id;
-    
+
     @NotBlank(message = "The product name cannot be empty")
     private String productName;
 

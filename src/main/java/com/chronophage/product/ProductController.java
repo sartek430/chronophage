@@ -11,12 +11,12 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/stock")
-    public List<ProductEntity> getProducts() {
+    public List<ProductDTO> getProducts() {
         return this.productService.getAll();
     }
 
     @PostMapping("/stock")
-    public List<PostProductDTO> addStock(@RequestBody List<PostProductDTO> products) {
+    public List<ProductDTO> addStock(@RequestBody List<ProductDTO> products) {
         return this.productService.saveAll(products);
     }
 }
