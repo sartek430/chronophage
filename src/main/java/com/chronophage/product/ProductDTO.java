@@ -6,10 +6,10 @@ import jakarta.validation.constraints.NotBlank;
 public class ProductDTO {
     private Long id;
 
-    @NotBlank(message = "The product name cannot be empty")
+    @NotBlank(message = "Product name cannot be empty")
     private String productName;
 
-    @Min(value = 1, message = "The quantity must be at least 1")
+    @Min(value = 1, message = "Quantity must be at least 1")
     private Long quantity;
 
     public ProductDTO(Long id, String productName, Long quantity) {

@@ -10,13 +10,13 @@ public class ProductEntity {
     @Id @GeneratedValue
     private Long id;
 
-    @NotBlank(message = "The product name cannot be empty")
+    @NotBlank(message = "Product name cannot be empty")
     private String name;
 
-    @Min(value = 1, message = "The quantity must be at least 1")
+    @Min(value = 1, message = "Quantity must be at least 1")
     private Long quantity;
 
-    @Min(value = 0, message = "The price must be positive")
+    @Min(value = 0, message = "Price must be positive")
     private Double price;
 
     public ProductEntity() {}
