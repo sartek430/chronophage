@@ -16,16 +16,16 @@ public class ProductService {
         return repository.findAll();
     }
 
-    public List<PostProductDTO> saveAll(List<PostProductDTO> products) {
+    public List<ProductDTO> saveAll(List<ProductDTO> products) {
         List<ProductEntity> productEntities = new ArrayList<ProductEntity>();
 
-        for (PostProductDTO postProductDTO : products) {
+        for (ProductDTO postProductDTO : products) {
             ProductEntity productEntity = new ProductEntity(
                 postProductDTO.getProductName(), 
                 postProductDTO.getQuantity(), 
                 null
             );
-            
+
             productEntities.add(productEntity);
         }
 

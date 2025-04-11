@@ -3,7 +3,7 @@ package com.chronophage.product;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 
-public class PostProductDTO {
+public class ProductDTO {
     private Long id;
     
     @NotBlank(message = "The product name cannot be empty")
@@ -12,7 +12,7 @@ public class PostProductDTO {
     @Min(value = 1, message = "The quantity must be at least 1")
     private Long quantity;
 
-    public PostProductDTO(Long id, String productName, Long quantity) {
+    public ProductDTO(Long id, String productName, Long quantity) {
         this.id = id;
         this.productName = productName;
         this.quantity = quantity;
