@@ -11,5 +11,7 @@
             ]
         }
     },
+    "runArgs": ["--network", "host"],
+    "forwardPorts": [8080],
     "postCreateCommand": "sdk install java 21.0.0-open"
 }
