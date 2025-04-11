@@ -3,7 +3,6 @@ package com.chronophage.product;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.chronophage.price.PriceDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
