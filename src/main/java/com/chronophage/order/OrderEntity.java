@@ -1,5 +1,6 @@
 package com.chronophage.order;
 
+import com.chronophage.orderItem.OrderItemEntity;
 import com.chronophage.product.ProductEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,20 +10,20 @@ import jakarta.persistence.OneToMany;
 import java.util.List;
 
 @Entity
-public class Order {
+public class OrderEntity {
 
     @Id
     @GeneratedValue
     private Long id;
     private boolean ispaid;
     @OneToMany
-    private List<ProductEntity> products;
+    private List<OrderItemEntity> products;
 
-    public Order(boolean ispaid) {
+    public OrderEntity(boolean ispaid) {
         this.ispaid = ispaid;
     }
 
-    public Order() {}
+    public OrderEntity() {}
 
     public boolean isIspaid() {
         return ispaid;

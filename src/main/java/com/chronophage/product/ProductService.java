@@ -2,6 +2,7 @@ package com.chronophage.product;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,8 @@ public class ProductService {
     
     @Autowired
     private ProductRepository repository;
+    @Autowired
+    private ProductRepository productRepository;
 
     public List<ProductDTO> getAll() {
         List<ProductEntity> productEntities = repository.findAll();
@@ -40,5 +43,18 @@ public class ProductService {
         }
         repository.saveAll(productEntities);
         return products;
+    }
+
+    public ProductDTO getById(Long id) {
+        Optional<ProductEntity> productEntity = productRepository.findById(id);
+
+        if (productEntity.isPresent()) {
+            return new ProductDTO(
+                    productEntity.get().getId(),
+                    productEntity.get().getName(),
+                    productEntity.get().getQuantity()
+            );
+        }
+        throw new RuntimeException();
     }
 }

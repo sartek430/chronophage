@@ -17,7 +17,7 @@ public class PriceService {
 
     public List<PriceDTO> getPrices(){
         List<ProductEntity> productEntities = productRepository.findAll();
-        List<PriceDTO> prices = new ArrayList<>();
+        List<PriceDTO> prices = new ArrayList<PriceDTO>();
 
         for (ProductEntity productEntity : productEntities) {
             PriceDTO priceDTO = new PriceDTO(
