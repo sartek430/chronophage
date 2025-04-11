@@ -11,8 +11,8 @@ import jakarta.annotation.PostConstruct;
 public class StoreService {
     @Autowired RestClient restClient;
 
-    @Value("${remote.store.name}") String name;
-    @Value("${remote.store.baseurl}") String baseUrl;
+    @Value("${spring.application.name}") String name;
+    @Value("${spring.application.baseurl}") String baseUrl;
 
     @PostConstruct
     public void init() {
